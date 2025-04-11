@@ -21,9 +21,12 @@ app.use(express.json());
 app.set('io', io); // Attach io instance to app for use in controllers
 
 // Routes
+
 app.use('/api/auth', authRoutes);
 app.use('/api/services', serviceRoutes);
-
+app.get('/api/', (req, res) => {
+  res.send('hello vivek')
+})
 // WebSocket connection listener
 io.on('connection', socket => {
   console.log('Socket connected');
